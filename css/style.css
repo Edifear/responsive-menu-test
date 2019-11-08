@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 
-html,
+html,   
 body {
   height: 100%;
   font-family: 'Raleway', sans-serif;
@@ -55,11 +55,40 @@ li {
   flex-wrap: wrap;
 }
 
+.header__menu {
+  position: relative;
+}
+
+
 .header__menu__items {
   display: flex;  
   flex-wrap: wrap;
   font-weight: 700;
   font-size: 16px;
+}
+
+.toggler {
+  display: none;
+}
+
+.toggler:hover + .header__menu__items,
+.header__menu__items:hover {
+  display: flex;
+}
+
+@media only screen and (max-width: 768px) {
+  .toggler {
+    display: block;
+  }
+
+  .header__menu__items {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    /* width: 100%; */
+    background: #FFF;
+  }
 }
 
 .menu__item {
