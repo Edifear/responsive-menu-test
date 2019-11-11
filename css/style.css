@@ -71,9 +71,31 @@ li {
   display: none;
 }
 
-.toggler:hover + .header__menu__items,
+/* .toggler:hover + .header__menu__items,
 .header__menu__items:hover {
   display: flex;
+} */
+
+svg {
+  fill: red;
+}
+
+.checkbox {
+  position: absolute;
+  top: -99999px;
+  left: -99999px;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.checkbox:checked + .toggler svg {
+  fill: blue;
+}
+
+
+.checkbox:checked ~ .header__menu__items {
+  max-height: 300px;
+  opacity: 1;
 }
 
 @media only screen and (max-width: 768px) {
@@ -82,12 +104,15 @@ li {
   }
 
   .header__menu__items {
-    display: none;
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
     position: absolute;
     top: 100%;
     right: 0;
     /* width: 100%; */
     background: #FFF;
+    transition: opacity 0.3s, max-height 1s;
   }
 }
 
